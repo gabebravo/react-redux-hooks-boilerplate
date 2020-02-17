@@ -2,8 +2,11 @@ import React from 'react';
 import ThemePicker from '../../components/ThemePicker';
 import Counter from '../../components/Counter';
 import { boxes } from '../../utils/constants';
+import { useSelector } from 'react-redux';
+import { incHome, decHome } from './reducer';
 
 export default function Home() {
+  const { count } = useSelector(store => store.home);
   return (
     <div className="theme-picker container">
       <div>
@@ -13,9 +16,9 @@ export default function Home() {
             {boxes.map((box, index) => (
               <Counter
                 key={`home-${index}`}
-                contextType={HomeContext}
-                incType="INC_HOME"
-                DecType="DEC_HOME"
+                incHandler={incHome}
+                decHandler={decHome}
+                currCount={count}
                 boxNumber={box}
               />
             ))}

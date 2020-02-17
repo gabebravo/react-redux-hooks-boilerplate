@@ -1,10 +1,12 @@
 import React from 'react';
 import ThemePicker from '../../components/ThemePicker';
 import Counter from '../../components/Counter';
-import Page1Provider, { Page1Context } from './reducer';
 import { boxes } from '../../utils/constants';
+import { useSelector } from 'react-redux';
+import { incPage1, decPage1 } from './reducer';
 
 export default function Page1() {
+  const { count } = useSelector(store => store.page1);
   return (
     <div className="theme-picker container">
       <div>
@@ -14,9 +16,9 @@ export default function Page1() {
             {boxes.map((box, index) => (
               <Counter
                 key={`page1-${index}`}
-                contextType={Page1Context}
-                incType="INC_PAGE1"
-                DecType="DEC_PAGE1"
+                incHandler={incPage1}
+                decHandler={decPage1}
+                currCount={count}
                 boxNumber={box}
               />
             ))}

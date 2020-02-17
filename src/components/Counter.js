@@ -14,7 +14,7 @@ const counterStyles = {
 export default function Counter({
   incHandler,
   decHandler,
-  currCount,
+  pageCount,
   boxNumber
 }) {
   const location = useLocation();
@@ -24,16 +24,16 @@ export default function Counter({
 
   return (
     <div style={counterStyles} className="column column-33">
-      <h4>{`${pageName} Count: ${currCount}`}</h4>
+      <h4>{`${pageName} Count: ${pageCount}`}</h4>
       <button
         className="button button-outline green"
-        onClick={dispatch(incHandler)}
+        onClick={() => dispatch(incHandler())}
       >
         {`Increment ${pageName} Count`}
       </button>
       <button
         className="button button-outline red"
-        onClick={dispatch(decHandler)}
+        onClick={() => dispatch(decHandler())}
       >
         {`Decrement ${pageName} Count`}
       </button>

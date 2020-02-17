@@ -12,10 +12,10 @@ export const decHome = createAction('DEC_HOME');
 export default handleActions(
   {
     [incHome]: (state, { payload }) => ({
-      pageCount: state + 1
+      pageCount: state.pageCount + 1
     }),
     [decHome]: (state, { payload }) => ({
-      pageCount: state - 1
+      pageCount: state.pageCount - 1
     })
   },
   defaultState

@@ -1,8 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import home from '../views/home/reducer';
-import page1 from '../views/page1/reducer';
-import page2 from '../views/page2/reducer';
+import home from '../views/home/reducers';
+import page1 from '../views/page1/reducers';
+import page2 from '../views/page2/reducers';
 import page3 from '../views/page3/reducers';
 
 const rootReducer = combineReducers({
@@ -12,10 +12,12 @@ const rootReducer = combineReducers({
   page3
 });
 
-export const store = createStore(
+const store = createStore(
   rootReducer,
   compose(
     applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );
+
+export default store;

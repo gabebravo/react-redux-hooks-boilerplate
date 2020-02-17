@@ -11,7 +11,7 @@ const NoMatch = () => 'There is nothing to see here';
 
 function App() {
   return (
-    <div style={{ height: '100em' }} className={theme || 'light'}>
+    <div style={{ height: '100em' }} className={'light'}>
       <Router>
         <NavBar />
         <Switch>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { transformPathName } from '../utils';
-import { useDispatch } from 'react-redux';
 
 const counterStyles = {
   textAlign: 'center',
@@ -20,21 +19,14 @@ export default function Counter({
   const location = useLocation();
   const pageName = transformPathName(location.pathname);
   const [count, setCount] = React.useState(0);
-  const dispatch = useDispatch();
 
   return (
     <div style={counterStyles} className="column column-33">
       <h4>{`${pageName} Count: ${pageCount}`}</h4>
-      <button
-        className="button button-outline green"
-        onClick={() => dispatch(incHandler())}
-      >
+      <button className="button button-outline green" onClick={incHandler}>
         {`Increment ${pageName} Count`}
       </button>
-      <button
-        className="button button-outline red"
-        onClick={() => dispatch(decHandler())}
-      >
+      <button className="button button-outline red" onClick={decHandler}>
         {`Decrement ${pageName} Count`}
       </button>
       <h4>{`Box${boxNumber} Count: ${count}`}</h4>

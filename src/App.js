@@ -1,24 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import Home from './views/home';
+import Page1 from './views/page1';
+import Page2 from './views/page2';
+import Page3 from './views/page3';
 import './App.css';
+import { GlobalContext } from './index';
+
+const NoMatch = () => 'There is nothing to see here';
 
 function App() {
+  const globalReducer = React.useContext(GlobalContext);
+  const {
+    state: { theme }
+  } = globalReducer;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ height: '100em' }} className={theme}>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/page1">
+            <Page1 />
+          </Route>
+          <Route path="/page2">
+            <Page2 />
+          </Route>
+          <Route path="/page3">
+            <Page3 />
+          </Route>
+          <Route path="*">
+            <NoMatch />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

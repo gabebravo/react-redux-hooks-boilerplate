@@ -1,7 +1,6 @@
 import React from 'react';
 import ThemePicker from '../../components/ThemePicker';
 import Counter from '../../components/Counter';
-import HomeProvider, { HomeContext } from './HomeProvider';
 import { boxes } from '../../utils/constants';
 
 export default function Home() {

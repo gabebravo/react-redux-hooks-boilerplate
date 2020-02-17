@@ -1,7 +1,7 @@
 import React from 'react';
 import ThemePicker from '../../components/ThemePicker';
 import Counter from '../../components/Counter';
-import Page3Provider, { Page3Context } from './Page3Provider';
+import Page3Provider, { Page3Context } from './reducers';
 import { boxes } from '../../utils/constants';
 
 export default function Page3() {

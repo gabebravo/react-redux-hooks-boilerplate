@@ -1,7 +1,7 @@
 import React from 'react';
 import ThemePicker from '../../components/ThemePicker';
 import Counter from '../../components/Counter';
-import Page2Provider, { Page2Context } from './Page2Provider';
+import Page2Provider, { Page2Context } from './reducers';
 import { boxes } from '../../utils/constants';
 
 export default function Page2() {

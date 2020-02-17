@@ -7,6 +7,7 @@ const defaultState = {
 // ACTIONS
 export const incPage1 = createAction('INC_PAGE1');
 export const decPage1 = createAction('DEC_PAGE1');
+export const resetPage1 = createAction('RESET_PAGE1');
 
 // REDUCERS
 export default handleActions(
@@ -16,7 +17,8 @@ export default handleActions(
     }),
     [decPage1]: (state, { payload }) => ({
       pageCount: state.pageCount - 1
-    })
+    }),
+    [resetPage1]: (state, { payload }) => defaultState
   },
   defaultState
 );

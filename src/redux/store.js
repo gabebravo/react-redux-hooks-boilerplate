@@ -4,7 +4,7 @@ import home from '../views/home/reducers';
 import page1 from '../views/page1/reducers';
 import page2 from '../views/page2/reducers';
 import page3 from '../views/page3/reducers';
-import global from '../components/ThemePicker/reducers';
+import global from './globalReducers';
 
 const rootReducer = combineReducers({
   home,

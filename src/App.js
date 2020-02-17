@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTheme } from './redux/globalReducers';
 import NavBar from './components/NavBar';
+import ThemePicker from './components/ThemePicker';
 import Home from './views/home';
 import Page1 from './views/page1';
 import Page2 from './views/page2';
@@ -12,10 +14,12 @@ const NoMatch = () => 'There is nothing to see here';
 
 function App() {
   const theme = useSelector(state => state.global.theme);
+  const dispatch = useDispatch();
   return (
     <div style={{ height: '100em' }} className={theme}>
       <Router>
         <NavBar />
+        <ThemePicker theme={theme} handler={() => dispatch(toggleTheme())} />
         <Switch>
           <Route exact path="/">
             <Home />

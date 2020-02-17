@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import NavBar from './components/NavBar';
 import Home from './views/home';
 import Page1 from './views/page1';
@@ -10,8 +11,9 @@ import './App.css';
 const NoMatch = () => 'There is nothing to see here';
 
 function App() {
+  const theme = useSelector(state => state.global.theme);
   return (
-    <div style={{ height: '100em' }} className={'light'}>
+    <div style={{ height: '100em' }} className={theme}>
       <Router>
         <NavBar />
         <Switch>

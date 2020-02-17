@@ -17,8 +17,8 @@ export default function Page1() {
           {boxes.map((box, index) => (
             <Counter
               key={`page1-${index}`}
-              incHandler={incPage1}
-              decHandler={decPage1}
+              incHandler={() => dispatch(incPage1())}
+              decHandler={() => dispatch(decPage1())}
               pageCount={pageCount}
               boxNumber={box}
             />
